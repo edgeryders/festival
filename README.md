@@ -1,4 +1,8 @@
-# vue-tailwind
+# Edgeryders Festival 2019 Setup
+
+The site uses Tailwind CSS and Purge CSS for styling.
+
+See tailwind.config.js for color and display options.
 
 ## Project setup
 ```
