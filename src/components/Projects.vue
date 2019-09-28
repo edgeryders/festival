@@ -1,6 +1,6 @@
 <template>
  <div class="w-full" id="projects">
-            <h1 class="font-display text-3xl mt-10 mb-6">{{ $t("projects_title") }}</h1>
+            <h1 class="font-display text-3xl mt-10 mb-6">What else are we working on?</h1>
 <div style="position: relative">
  <swiper
             :options="categoryOptions"

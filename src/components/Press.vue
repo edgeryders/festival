@@ -1,6 +1,6 @@
 <template>
  <div class="w-full h-64 flex overflow-hidden relative" id="press">
-            <h2 class="text-4xl text-display absolute top-1 ">{{ $t("press") }}</h2>
+            <h2 class="text-4xl text-display absolute top-1">As mentioned by..</h2>
 
    <a
                     :href="activePress.source"

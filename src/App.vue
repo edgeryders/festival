@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <vue-headful
+            title="Title from vue-headful"
+            description="Description from vue-headful"
+        />
     <router-view/>
   </div>
 </template>

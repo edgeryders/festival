@@ -39,7 +39,7 @@
             <h4
               class="flex items-center justify-between w-full text-xl font-normal"
             >
-             <a href='event.link' target="_blank"> {{ event.title }} </a> <span v-if="event.type" class="type">{{ event.type }}</span>
+             <a :href='event.link' target="_blank"> {{ event.title }} </a> <span v-if="event.type" class="type">{{ event.type }}</span>
             </h4>
           </div>
           <p class="px-4 py-4 font-normal flex-grow">{{ event.excerpt }}</p>

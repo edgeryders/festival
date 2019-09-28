@@ -122,7 +122,7 @@ export default {
       console.log("Form complete", data.map(d => d.question + ': ' + d.answer));
     },
 	    getData() {
-	        axios.get("https://edgeryders.now.sh/festival")
+	        axios.get("https://edgeryders.herokuapp.com/festival")
 	            .then(({ data }) => {
 	                this.events = data.events;
 	                this.conversations = data.conversations;

@@ -46,7 +46,6 @@
 </template>
 
 <script>
-import i18n from '@/plugins/i18n'
 /**
  * Used as main page navigation in templates.
  */
