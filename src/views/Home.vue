@@ -3,15 +3,15 @@
     <Nav />
 
     <div class="section fp-auto-height" id="hero">
-       <Hero @changeMsg="setMessage" />
+       <Hero @changeMsg="setMessage" @setCity="setCity" />
       </div>
-
+      
      <div class="section" id="participants">
-        <Participants />
+        <Participants :data="participants" />
       </div>
 
      <div class="section" id="events">
-        <Events @changeMsg="setMessage" :data="events" />
+        <Events @changeMsg="setMessage" :data="events" :search="city" />
       </div>
 
        <div class="section" id="process">
@@ -78,11 +78,14 @@ export default {
     	stories: null,
     	events: null,
     	conversations: null,
+    	participants: null,
     	categories: null,
     	modal: false,
     	formData: null,
     	ticket: data.ticket,
     	proposal: data.proposal,
+    	form: null,
+    	city: '',
     }
    },
   components: {
@@ -114,16 +117,61 @@ export default {
 	  	 	}
           this.modal = true
         },
+        setCity(value){
+        	this.city = value;
+
+        	var VueScrollTo = require('vue-scrollto');
+
+
+        	VueScrollTo.scrollTo('#events', 700, { easing: 'ease-out' } );
+        },
 	  	closeModal() {
 	  		this.modal = false
 	  	},
-	  	complete(data) {
+	  	complete(formData) {
       // Send to database here
-      console.log("Form complete", data.map(d => d.question + ': ' + d.answer));
+      this.form = formData;
+
+       	const exampledata = {
+        "records": [
+          {
+            "fields": {
+              "Name": formData.data[1].answer,
+              "Email": formData.data[0].answer,
+              "Languages": formData.data[2].answer,
+              "City": formData.data[3].answer,
+              "Biography": formData.data[4].answer,
+            }
+          }
+        ]
+      };
+
+  let airtable = 'https://api.airtable.com/v0/appSsObHW2QODf3jA/' + formData.title;
+
+  let axiosConfig = {
+    headers: {
+        'Authorization': 'Bearer keyocggSHfh6E9gSg',
+        'Content-Type': 'application/json'
+    }
+  };
+axios.post(airtable, exampledata, axiosConfig)
+    .then(function (response) {
+      // handle success
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+    });
+
+
     },
 	    getData() {
 	        axios.get("https://edgeryders.herokuapp.com/festival")
 	            .then(({ data }) => {
+	            	this.participants = data.participants;
 	                this.events = data.events;
 	                this.conversations = data.conversations;
 	                this.stories = data.stories;
@@ -134,12 +182,6 @@ export default {
 	        
 	        axios.get("https://api.particip.io/get-data?endpoint=https://edgeryders.eu/categories")
 	            .then(({ data }) => {
-
-					this.wellbeingCategory = data.category_list.categories.filter(
-						function(e) {
-							return (e.name == "Wellbeing in Europe");
-						}
-					);
 
 					let categoryArray = data.category_list.categories.filter(
 					  function(e) {
@@ -193,7 +235,7 @@ export default {
 	}
 	&#mission {
 		padding-top: 40px;
-		padding-bottom: 80px;
+		padding-bottom: 20px;
 		background: #efefef;
 	}
 	&#press {
@@ -212,6 +254,29 @@ export default {
 	&#projects {
 		background: #fafafa;
 		padding: 0px 0 60px;
+	}
+}
+
+@media (max-width: 640px) { 
+.section {
+	&#press {
+		background: #efefef;
+		padding: 0px !important;
+	}
+	&#process {
+		padding-bottom: 20px;
+	}
+	&#mission {
+		padding-bottom: 0px;
+	}
+	&#people {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	&#edgeryders {
+		padding-top: 40px;
+		padding-bottom: 60px;
+	}
 	}
 }
 </style>

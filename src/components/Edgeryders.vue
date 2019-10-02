@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h1 class="font-display text-5xl">We are Edgeryders</h1>
+    <h1 class="font-display text-4xl md:text-5xl">We are Edgeryders</h1>
 
     <div class="w-full flex flex-col items-start justify-between">
-      <div class="w-full flex px-12 mt-8 leading-normal">
-        <div class="w-1/2 pr-12 pt-4 text-right border-r border-gray">
-          <h3 class="font-display text-2xl">And we are listening.</h3>
+      <div class="w-full flex flex-col md:flex-row md:px-12 md:mt-8 leading-normal">
+        <div class="w-full md:w-1/2 px-10 md:pr-12 md:pt-4 text-left md:text-right md:border-r border-gray">
+          <h3 class="font-display text-2xl text-center md:text-right mb-4">And we are listening.</h3>
           <p class=" text-xl">
             We are collecting your stories to better understand how we can level
             up impact of our efforts to fix socialecological, economic, and
@@ -18,14 +18,14 @@
             Tell us what brings you here
           </button></a>
         </div>
-        <div class="w-1/2 flex flex-col px-0 mt-6 px-2">
-          <div class="w-full flex px-8">
+        <div class="md:w-1/2 flex flex-col px-0 mt-6 md:px-2">
+          <div class="w-full flex px-2 md:px-8">
               <div class="icon automation"></div>
               <div class="icon activism"></div>
               <div class="icon healthcare"></div>
               <div class="icon ai"></div>
           </div>
-           <div class="w-full flex mb-6 px-8">
+           <div class="w-full flex mb-6 px-2 md:px-8">
               <div class="icon elections"></div>
               <div class="icon network"></div>
               <div class="icon environment"></div>
@@ -35,9 +35,9 @@
         </div>
       </div>
       <div
-        class="w-full flex px-12 text-left leading-normal border-l border-gray"
+        class="w-full md:flex md:px-12 text-left leading-normal border-l border-gray"
       >
-        <div class="w-1/2 mt-0 pt-8 border-r border-gray">
+        <div class="md:w-1/2 mt-0 md:pt-8 md:border-r border-gray">
           
           <div class="er_photo">
             <div class="photo">
@@ -46,8 +46,8 @@
           </div>
 
         </div>
-        <div class="w-1/2 mt-0 pt-0 pl-12 pt-8">
-          <h3 class="font-display text-2xl">This is how it works.</h3>
+        <div class="md:w-1/2 mt-2 pt-0 px-10 md:pl-12 pt-8">
+          <h3 class="font-display text-2xl mb-4 md:mb-0">This is how it works.</h3>
           <p class="text-xl">
             Edgeryders is platform of over 5.000 people who have been sharing
             their stories, their ideas, their problems, and their solutions
@@ -67,24 +67,24 @@
       </div>
 
       <div
-        class="w-full flex px-12 text-left leading-normal border-l border-gray"
+        class="w-full md:flex px-10 md:px-12 text-left leading-normal md:border-l border-gray"
       >
-        <div class="w-1/2 pr-12 pt-8 text-right border-r border-gray">
-          <h3 class="font-display text-2xl">Follow us</h3>
+        <div class="md:w-1/2 pr-12 pt-8 md:text-right md:border-r border-gray">
+          <h3 class="font-display text-2xl mb-4 md:mb-0">Follow us</h3>
           <p class="text-xl">
             We would ask you to follow us on the usual social networks, but in our heart of hearts, we'd be much happier if you signed up to the platform and made a quick introduction to the community. We don't bite. 
           </p>
-          <p class="text-xl font-bold mt-20 font-primary">(But if you insist...)</p>
+          <p class="text-xl font-bold mt-4 md:mt-20 font-primary">(But if you insist...)</p>
      
         </div>
-        <div class="w-1/2 mt-0 pt-0 pl-12 pt-8" style="position: relative">
+        <div class="md:w-1/2 mt-0 pt-0 md:pl-12 md:pt-8" style="position: relative">
          
-         <div class="w-full flex pt-10">
+         <div class="w-full flex pt-4 md:pt-10">
          <a class="social twitter" href="https://twitter.com/edgeryders" target="_blank"></a>
          <a class="social facebook" href="https://facebook.com/edgeryders" target="_blank"></a>
         <a class="social email" href="mailto:info@edgeryders.eu" target="_blank"></a>
   </div>
-          <div class="arrow">
+          <div class="arrow hidden md:block">
           </div>         
         </div>
       </div>
@@ -145,7 +145,7 @@ export default {
   .photo {
   background: url('../assets/edgeryders_group.jpg') no-repeat center 15px #f7f8f8;
   background-size: 95%;
-  height: 290px;
+  height: 220px !important;
   padding-bottom: 80px;
   position: relative;
   border-radius: 10px;
@@ -188,7 +188,7 @@ export default {
   background-repeat: no-repeat !important;
   background-size: 50%;
   width: 25%;
-  height: 8.5vw !important;
+  height: 4rem !important;
   margin: 10px;
   &.automation {
     background-image: url("data:image/svg+xml,%3Csvg width='70' height='77' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='nonzero'%3E%3Cpath fill='white' d='M11.5 26.3a11.4 11.4 0 0 0-3 22.4l9 20.1a17.8 17.8 0 0 0-3.7 4.4c-.4.8-.4 1.8 0 2.5.5.8 1.3 1.3 2.2 1.3h26.5a2.5 2.5 0 0 0 2.2-3.8c-2.8-4.8-7.6-8-13.1-8.7l-11.8-19a11.4 11.4 0 0 0 3-9.5l18.6-17.6a9 9 0 0 0 1.9.3 9 9 0 0 0 2.2-.3l9.2 7.8c0 2.2 1 4.3 2.6 5.7v5.8c0 1 .6 2 1.5 2.3l1.1 4a2.5 2.5 0 0 0 5 0l1-4c1-.4 1.6-1.3 1.6-2.3v-5.8A7.6 7.6 0 0 0 61 18.8l-9-7.6.2-1.4a8.9 8.9 0 0 0-17.8 0v1L14.2 26.7l-2.7-.3zm30.5 48H15.9A15 15 0 0 1 30.3 67c4.9.3 9.2 3 11.7 7.2zM27.5 64h-.4l-1 .1h-.4l-1.3.3h-.2l-1 .4-.5.1-.8.4-.5.1-.9.5-.3.1-1 .7-8-17.7H13l1.4-.4h.2L16 48h.1l1.3-.7h.1L28 64h-.5zm-10-19.9a9 9 0 0 1-7 2.1h-.6A8.8 8.8 0 1 1 14.3 29a8.8 8.8 0 0 1 3.2 15.1zm46-11.4l.9-.3V37h-4.7v-4.6l1 .2h.1a6 6 0 0 0 2.4 0h.2zm-2.9-12.4v10.2h-.3l-1.4-.8c-1.2-1-2-2.6-2-4.3V25l.2-.8a5.1 5.1 0 0 1 3.5-3.8zm2 22.3l-1-2.8h1.9l-1 2.8zm4.6-17.2c0 1.7-.7 3.3-2 4.3-.5.4-1.1.7-1.7.8V20.4c2.2.6 3.7 2.7 3.7 5.1zm-8.4-5.7l-.7.5-.2.2c-.6.5-1.1 1-1.6 1.7l-.5 1-7.3-6 1-.6.7-.8.2-.2.6-.6.2-.4.4-.6 7.1 5.8h.1zm-15.9-17a6.5 6.5 0 0 1 6.1 8.9 6.5 6.5 0 0 1-12.6-2.4c0-3.6 3-6.5 6.5-6.5zM34.7 13l.1.2.4.7.2.3.7.9.1.1 1 .9.2.2.8.5-16.5 15.7-.3-.7v-.1l-.7-1.2-.2-.2-.8-1-1-.9-.1-.2-1-.7-.3-.1-.5-.4 18-14z'/%3E%3Cpath fill='white' d='M54.3 54.6l1.2.1c2.4 0 4.2-1.6 4.2-3.7 0-2-1.8-3.7-4.2-3.7-2.3 0-4.2 1.7-4.2 3.7l.1.8a4 4 0 0 0 2.9 2.8zm1.2-5.4c.8 0 1.4.6 1.4 1.4 0 .7-.6 1.3-1.4 1.3h-.4-.2l-.3-.3-.1-.2-.4-.5v-.3c0-.8.7-1.4 1.4-1.4z'/%3E%3C/g%3E%3C/svg%3E");
@@ -217,6 +217,16 @@ export default {
 
 }
 
+@media (min-width: 640px) { 
+.icon {
+height: 8.5vw !important;
+}
+.er_photo {
+  .photo {
+  height: 290px !important;
+}
+  }
+}
 
 .speech-bubble {
   position: relative;

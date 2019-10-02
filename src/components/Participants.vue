@@ -1,115 +1,91 @@
 <template>
-  <div class="w-12/12 px-20 py-10 flex flex-col">
-  <h2 class="font-display text-5xl mb-0 font-medium w-full flex flex-row">The Participants</h2>
+  <div class="w-full md:px-20 md:py-10 flex flex-col">
+    <h2 class="font-display text-4xl md:text-5xl mt-8 ml-8 mb-1 mx-auto md:mt-0 md:ml-0 leading-tight md:leading-normal font-medium w-full flex flex-row">
+      The Participants
+    </h2>
 
-  <div class="w-full py-8 flex flex-row">
+    <div class="w-full py-4 md:py-8 flex flex-col md:flex-row">
+      <div class="members w-full whitespace-no-wrap h-20 mb-4 md:mb-0 md:px-0 md:w-3/5 md:h-auto md:whitespace-normal">
+        <div
+          class="avatar w-20 h-20 md:w-20 md:h-20 bg-cover md:float-left"
+          v-for="(organiser, index) in data"
+          @click="setActive(index)"
+          :class="{ active: activeIndex === index }"
+          :style="{ backgroundImage: 'url(' + organiser.image + ')' }"
+        ></div>
+      </div>
 
-
-<div class="w-1/2 flex flex-row flex-wrap content-start pr-6">
-<div class="w-1/4 h-auto avatar p-1" v-for='(organiser, index) in organisers' @click="setActive(index)" :class="{ 'active': activeIndex === index }">
-  <img class="rounded-lg border-4 border-white" :src="organiser.avatar" />
-</div>
-</div>
-
-<div class="w-1/2 p-2 text-left">
-<h3 class="font-display text-3xl mb-5 font-medium bg-primary text-white p-2 px-4 inline-block">{{organisers[activeIndex].name}}</h3>
-<p class="font-body text-lg leading-relaxed">{{organisers[activeIndex].bio}}</p>
-</div>
-
-
+      <div class="w-full px-8 md:px-0 md:w-1/2 p-2 md:p-0 text-left">
+        <h3
+          class="font-display text-3xl mb-4 font-medium bg-primary text-white p-2 px-4 inline-block"
+        >
+          {{ data[activeIndex].title }}
+        </h3>
+        <div v-if="data[activeIndex].excerpt.length > 1">
+          <h4 class="font-display leading-tight text-2xl md:text-3xl mt-0 mb-4 md:mb-2 text-lg md:leading-relaxed">
+            {{ data[activeIndex].excerpt[0] }}
+          </h4>
+          <p class="font-body text-lg leading-relaxed">
+            {{ data[activeIndex].excerpt[1] }}
+          </p>
+        </div>
+        <div class="footer flex mt-4" v-if="data[activeIndex].username">
+          <a
+            class="font-body text-lg leading-relaxed bg-white border-gray mr-4 border rounded-lg text-orange p-3"
+            :href="data[activeIndex].link"
+            >Read More</a
+          >
+          <a
+            class="font-body text-lg leading-relaxed bg-primary rounded-lg text-white p-3"
+            :href="
+              'https://edgeryders.eu/u/' +
+                data[activeIndex].username.substring(1)
+            "
+            target="_blank"
+            >{{ data[activeIndex].username }}</a
+          >
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </template>
 
-
 <script>
-
 export default {
   data() {
     return {
-      activeIndex: 0,
-      activeOrganiser: {
-          name: "John Coate",
-          username: "johncoate",
-          avatar: "https://edgeryders.eu//user_avatar/edgeryders.eu/johncoate/200/9859_2.png",
-          byline: "Co-Director and Community Manager, Edgeryders",
-          bio:
-            "John was employee number two at The WELL, where he was instrumental in creating the online community that Wired Magazine called the “world’s most influential”. There he was the first to work as what is now known as an “online community manager” and he wrote the first treatise on building online community. He co-founded the first major news website, sfgate.com, which today has more than thirty million monthly visitors and more than 340K Twitter followers. He was the online manager of a teen social network and game site that had thousands of members. He managed a regional media organisation that combined terrestrial radio and the internet in innovative ways. Through it all the core of his community knowledge comes from direct personal experience living and working with others who are consciously building lasting relationships as the building blocks of community.",
-        },
-      organisers: [
-        {
-          name: "John Coate",
-          username: "johncoate",
-          avatar: "https://edgeryders.eu//user_avatar/edgeryders.eu/johncoate/200/9859_2.png",
-          byline: "Co-Director and Community Manager, Edgeryders",
-          bio:
-            "John was employee number two at The WELL, where he was instrumental in creating the online community that Wired Magazine called the “world’s most influential”. There he was the first to work as what is now known as an “online community manager” and he wrote the first treatise on building online community. He co-founded the first major news website, sfgate.com, which today has more than thirty million monthly visitors and more than 340K Twitter followers. He was the online manager of a teen social network and game site that had thousands of members. He managed a regional media organisation that combined terrestrial radio and the internet in innovative ways. Through it all the core of his community knowledge comes from direct personal experience living and working with others who are consciously building lasting relationships as the building blocks of community.",
-        },
-        {
-          name: "Nadia E.N.",
-          username: "nadia",
-          avatar: "https://edgeryders.eu//user_avatar/edgeryders.eu/nadia/200/10484_2.png",
-          byline: "Co-Founder, Edgeryders",
-          bio:
-            "Engineer and designer born in Sweden to African parents, raised in Europe and Asia. A bridge person between activist networks of marginalised groups, artists, civil society, entrepreneurs, media and government. Nadia’s role in Edgeryders to serve our global community of brilliant misfits via the not-for-profit company that builds and managers the infrastructure sustaining it. In practice this translates into laying out the vision, building strategic partnerships, driving flagship projects and managing crews on different projects. Named Minister of Labour in a “dream government of New Thinkers” imagined for Sweden by the leading financial newspaper in Scandinavia.",
-        },
-        {
-          name: "Alberto Cottica",
-          username: "alberto",
-          avatar: "https://edgeryders.eu//user_avatar/edgeryders.eu/alberto/200/5_2.png",
-          byline: "Co-Founder and Research Director, Edgeryders",
-          bio:
-            "Data/Network Scientist and Economist. An expert on collaborative governance and participation, with proven track record of managing processes of ICT-enabled design and delivery of public policy – and even public services – in collaboration with citizens. Alberto has first-hand experience in establishing, nurturing and running communities of citizens that work towards common goals, sometimes in alliance with government). Also has a proven track record of driving adoption of innovative practices – and, more importantly, of a practice of openness and transparency in policy delivery – in fairly conservative large organisations, including government agencies.",
-        },
-        {
-          name: "Hugi Ásgeirsson",
-          username: "hugi",
-          byline: "Co-Director, Edgeryders",
-          avatar: "https://edgeryders.eu//user_avatar/edgeryders.eu/hugi/200/10418_2.png",
-          bio:
-            "Positioned between technology and participatory culture and politics, Hugi is interested in how people can collaborate better together today and in the future, online and offline. He currently works from Stockholm, where he co-founded the participatory culture center and social enterprise Blivande. As a co-director of Edgeryders, he runs the development lab Participio developing software for participatory culture and is involved in a number of projects exploring how technology can enable participation, social cohesion and resilience. Hugi has a background in informatics and analytics and has a degree from KTH Royal Institute of Technology where he studied biotechnology engineering.",
-        },
-        {
-          name: "Maria Euler",
-          avatar: "https://edgeryders.eu//user_avatar/edgeryders.eu/mariaeuler/200/9955_2.png",
-          username: "MariaEuler",
-          byline: "Community Manager, Edgeryders",
-          bio:
-            "Interdisciplinary artist and design researcher as well as a community manager for edgeryder with a background in physics, fine art and a Master in Information Experience Design from the Royal Collge of Art. She searches for points of connection and entry, between disciplines, complex scientific concepts, discussion, emotional and tangible experiences and people. She worked with the Helen Hamlyn Centre for Inclusive Design and the Financial Education startup Gimi as a researcher and UX Designer. She also was part of multiple successful art-science collaborations as for example with the Bristol Laboratory for Quantum Computing and exhibited interactive installations at venues and festivals across Europe such as Sonar+D, I-Gem and VrSci. Her goal is to enable different approaches and connections to increase the diversity and creativity of the discourse on art, science and technology.",
-        },
-        {
-          name: "Amelia Hassoun",
-          username: "amelia",
-          avatar: "https://edgeryders.eu//user_avatar/edgeryders.eu/amelia/200/9977_2.png",
-          byline: "Lead Ethnographer, Edgeryders",
-          bio:
-            "An anthropologist with a research focus on the social impacts of digital technologies. Has extensive ethnographic research experience both online and offline, in both public and private sector, focusing on the power of participatory communities to facilitate transparent, efficient solutions to public problems. Has technical experience designing and developing a bespoke patient information website, as well as interviewing community members, gathering and analysing qualitative and quantitative data, and generating ethnographic reports. Currently a doctoral researcher at the Oxford Internet Institute analysing community-based civic technology initiatives, ethnographically examining how community members creatively interact with and rework “smart” urban technologies.",
-        },
-      ]
+      activeIndex: 0
     };
   },
   methods: {
-    setActive(index) { 
+    setActive(index) {
       this.activeIndex = index;
-    },
-}
+    }
+  },
+  props: ["data"]
 };
 </script>
 <style type="text/css" lang="scss">
-
-.avatar img {
-  opacity: 0.8
+.members {
+overflow: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar; 
+}
+.avatar {
+  opacity: 0.9;
+  width: 20%;
+  display: inline-block;
+  margin: 0;
 }
 .avatar:hover {
   cursor: pointer;
-  img {
-  opacity: 1
-}
+  opacity: 1;
 }
 
-.avatar.active img {
+.avatar.active {
   border: 4px solid #00acc1;
-  opacity: 1
+  opacity: 1;
 }
 
 .recent_post {
@@ -211,15 +187,16 @@ export default {
     display: block !important;
   }
   .featuredStories {
-  .swiper-button-prev, .swiper-button-next {
-  top: 40% !important;
-}
- .swiper-button-prev {
-background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%232c86b8'%2F%3E%3C%2Fsvg%3E")
-}
- .swiper-button-next {
-background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%232c86b8'%2F%3E%3C%2Fsvg%3E")
-}
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: 40% !important;
+    }
+    .swiper-button-prev {
+      background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%232c86b8'%2F%3E%3C%2Fsvg%3E");
+    }
+    .swiper-button-next {
+      background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%232c86b8'%2F%3E%3C%2Fsvg%3E");
+    }
     .swiper-slide {
       display: flex;
       align-items: center;
@@ -231,62 +208,59 @@ background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2
       display: inline-block !important;
 
       a {
-      text-decoration: none;
-          color: #2c86b8 !important;
+        text-decoration: none;
+        color: #2c86b8 !important;
 
-          h3 { 
+        h3 {
           color: #2c86b8 !important;
-}
-}
-.excerpt a {
-  text-decoration: underline !important
-
-    }
+        }
+      }
+      .excerpt a {
+        text-decoration: underline !important;
+      }
       .footer {
         border-radius: 10px;
         display: inline-flex;
         width: auto !important;
         margin: 5px 0 0 0;
         overflow: hidden;
-               box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
 
         p {
           float: left;
           padding: 13px 20px 10px;
           margin: 0;
           height: 100%;
-          font-size: .9em;
-          background: rgba(0,0,0,0.02);
+          font-size: 0.9em;
+          background: rgba(0, 0, 0, 0.02);
           border-right: 1px solid #efefef;
-
         }
-           a {
-           padding: 13px 20px 10px;
-           height: 100%;
-          font-size: .9em;
-            border: none;
-            background: orangered;
-            color: white !important;
-
-          }
+        a {
+          padding: 13px 20px 10px;
+          height: 100%;
+          font-size: 0.9em;
+          border: none;
+          background: orangered;
+          color: white !important;
+        }
       }
       .photo {
         width: 33%;
         float: left;
         margin-right: 4%;
         height: 400px;
-        background-color: #DFDBE5;
+        background-color: #dfdbe5;
         position: relative;
         overflow: hidden;
-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-.image_fill {
-  width: 100%;
-  height: 100%;
-  background-size: cover !important;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+        .image_fill {
+          width: 100%;
+          height: 100%;
+          background-size: cover !important;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
       }
       .summary {
         width: 63%;
@@ -309,25 +283,23 @@ background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wi
     }
   }
   .other_stories {
-  width: 80%;
-  margin: -40px auto 0;
-  padding: 0;
-  .swiper-wrapper {
-    width: 100% !important;
-  }
-  .swiper-slide {
-    width: 31% !important;
-    margin: 0% 1.1% 2%;
-    .recent_post {
+    width: 80%;
+    margin: -40px auto 0;
+    padding: 0;
+    .swiper-wrapper {
       width: 100% !important;
     }
-  }
-  h1 {
-    width: 100%;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    .swiper-slide {
+      width: 31% !important;
+      margin: 0% 1.1% 2%;
+      .recent_post {
+        width: 100% !important;
+      }
+    }
+    h1 {
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
   }
 }
-
-}
-
 </style>

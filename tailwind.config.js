@@ -11,6 +11,7 @@ module.exports = {
     textColor: {
       'primary': '#00acc1',
       'secondary': '#ffed4a',
+      'body': '#2C3E50',
       'danger': '#e3342f',
       'white': '#fff',
     },
@@ -20,6 +21,7 @@ module.exports = {
      'orange': 'orangered',
      'white': '#fff',
      'black': '#000',
+     'none': 'rgba(0,0,0,0)',
      'gray-100': '#fafafa',
      'gray-200': '#efefef',
      'gray-300': '#ddd'

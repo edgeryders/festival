@@ -1,8 +1,8 @@
 <template>
-  <div class="vue-form__question" :class="{ block: question.type === 'block' }">
-    <span class="number" v-if="shouldShowNumber">{{ number }}</span>
+  <div class="vue-form__question px-6" :class="{ block: question.type === 'block' }">
+    <span class="number hidden flex" v-if="shouldShowNumber">{{ number }}</span>
 
-   <span class="question font-display text-3xl " :class="{ big: !shouldShowNumber }">
+   <span class="question font-display text-3xl" :class="{ big: !shouldShowNumber }">
    {{ question.question }}
     </span>
 
@@ -27,15 +27,18 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 
-.fade-enter-active, .fade-leave-active {
-  transition: all .5s;
 
+.vue-form__question {
+  &.block {
+    padding: 0 2rem 0 0 !important;
+
+  .question {
+  font-size: 1.1rem !important;
+  line-height: 1.2rem !important;
+  }
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-    transform: translateY(29px);
 }
 
 .vue-form__question {
@@ -44,38 +47,23 @@ export default {
   text-align: left;
   position: relative;
 
-  &.block {
-  border-right: 1px solid rgba(0,0,0,0.1);
-    margin-top: 0rem !important;
-.number {
 
-position: absolute;
-left: -60px;
-    margin-top: 0rem; 
-
-}
-  .question {
-  font-size: 1.1rem !important;
-  padding-right: 30px;
-  line-height: 1.8rem !important;
-  }
-}
 
   .number {
-    background: RGBA(27, 172, 192, 1.00);
-    color: white;
+    border: 1px solid RGBA(0,0,0,0.1);
+    color: RGBA(0,0,0,0.8);
+    background: RGBA(0,0,0,0.04);
     height: 40px;
     width: 40px !important;
     float: left;
 
     flex-basis: 100px;
-    display: flex;
     font-weight: bold;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     margin-right: 1rem;
-    margin-left: .3rem;
+    margin-left: .5rem;
     margin-top: 0.1rem;
   }
 
@@ -95,5 +83,24 @@ left: -60px;
 
     }
   }
+}
+
+@media (min-width: 640px) {
+.vue-form__question {
+  &.block {
+  border-right: 1px solid rgba(0,0,0,0.1);
+    margin-top: 0rem !important;
+       margin-left: 1rem !important;
+.number {
+display: none;
+}
+  .question {
+  font-size: 1.1rem !important;
+  padding-right: 30px;
+  padding-top: 0;
+  line-height: 1.8rem !important;
+  }
+}
+}
 }
 </style>

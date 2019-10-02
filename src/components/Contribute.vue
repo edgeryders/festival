@@ -1,10 +1,10 @@
 <template>
   <div class="mt-0">
-    <h1 class="font-display text-5xl mt-0 pt-0">Join the conversation</h1>
+    <h1 class="font-display text-4xl md:text-5xl mt-0 mb-4 pt-0 px-4 leading-tight">Join the conversation</h1>
     <h3 class="font-display text-2xl">The Edgeryders Festival is a #nospectators event</h3>
 
-<div class="w-full flex justify-between">
-    <div class="w-1/2 p-12 text-left leading-normal">
+<div class="w-full flex flex-col md:flex-row justify-between">
+    <div class="w-full md:w-1/2 px-6 md:px-10 mt-4 md:p-12 md:mt-0 text-left leading-normal">
     <p class=" text-xl">
       The process of co-creating the festival is designed to ensure each
       participant is connected with the relevant people ahead of the event. That
@@ -16,15 +16,15 @@
        <a href='#events' v-smooth-scroll="{ duration: 1000, offset: -100 }"><button class="text-white bg-primary border border-primary text-xm font-semibold rounded-lg px-4 py-3 mt-4 leading-normal">Experience it now</button></a>
 
   </div>
-    <div class="w-1/2 px-8 mt-8 pt-4 text-left text-xl border-l border-gray leading-normal">
+    <div class="md:w-1/2 px-4 hidden md:block md:px-8 md:mt-8 md:pt-4 text-left text-xl border-l border-gray leading-normal">
     <div class="w-full" v-if='activeDiscussion != null'>
-        <div class="w-full flex items-center content-center" v-if="activeDiscussion.author">
+        <div class="w-full flex flex-col md:flex-row items-center md:content-center" v-if="activeDiscussion.author">
 
-          <div class="p-2 w-20 h-20 flex-none mr-8 ml-0 mb-5 bg-white rounded-full shadow-lg border-4 border-white overflow-hidden object-cover bg-cover" :style="{ backgroundImage: 'url(' + activeDiscussion.author.avatar + ')' }">
+          <div class="mt-10 md:p-2 w-20 h-20 flex-none md:mr-8 ml-0 mb-8 md:mb-5 bg-white rounded-full shadow-lg border-4 border-white overflow-hidden object-cover bg-cover" :style="{ backgroundImage: 'url(' + activeDiscussion.author.avatar + ')' }">
           </div>
             
   
-          <div class="p-8 flex-grow bg-white rounded-lg shadow-xl speech-bubble">
+          <div class="p-8 flex-grow bg-white rounded-lg md:shadow-xl bubble">
               <p v-if='activeDiscussion.excerpt'>{{activeDiscussion.excerpt}}</p>
               <div class="footer text-lg mt-4 flex items-stretch items-center h-12">
 
@@ -99,15 +99,28 @@ export default {
 };
 </script>
 
-<style type="text/css" lang="scss">
+<style lang="scss" scoped>
   
-.speech-bubble {
+.bubble {
   position: relative;
-  background: #fff;
   border-radius: .4em;
 }
 
-.speech-bubble:after {
+.bubble:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border: 20px solid transparent;
+  border-bottom-color: #fff;
+  border-top: 0;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+
+@media (min-width: 640px) { 
+
+.bubble:after {
   content: '';
   position: absolute;
   left: 0;
@@ -120,7 +133,9 @@ export default {
   border-top: 0;
   margin-top: -10px;
   margin-left: -20px;
-
 }
+
+ }
+
 
 </style>

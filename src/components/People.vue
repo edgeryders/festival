@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1 class="font-display text-5xl">The People</h1>
-    <h3 class="font-display text-2xl w-1/2 mt-0 m-auto">Shed a light on your journey, it helps us connect you to the right people, conversations and opportunities.</h3>
+    <h1 class="font-display text-4xl md:text-5xl">The People</h1>
+    <h3 class="font-display text-2xl px-4 mt-2 md-px-0 md:w-1/2 mt-0 m-auto">Shed a light on your journey, it helps us connect you to the right people, conversations and opportunities.</h3>
      <a href='https://edgeryders.eu/c/campfire' target='_blank'><button class="text-white bg-primary border border-primary text-xm font-semibold rounded-lg px-4 py-3 mt-4 leading-normal">Tell us about you</button></a>
 
-<div class="w-full px-12 py-8 people">
+<div class="w-full px-4 md:px-12 py-8 people">
    <swiper
             :options="sliderOptions"
-            class='px-8'
+            class='md:px-8'
             ref="mySwiper"
           >
             <swiper-slide class="story_slide"
@@ -19,7 +19,7 @@
               <div class="story bg-cover bg-center flex flex-col flex-end shadow-lg" style="height: 400px; width: 100% !important; margin: 0 auto !important; background-repeat: no-repeat; background-color: RGBA(66, 103, 178, 1.00)" :style="{ backgroundImage: 'url(' + story.image + ')' }">
                 
                   <Profile class='mt-4 ml-3 mb-2' :data='story.author' />
-                   <h4 class="font-body text-3xl mt-4 font-bold text-left pr-10 pl-4 text-white leading-none" style="text-shadow: 0px 1px 1px rgba(0,0,0,0.3)"><a :href='story.link' target="_blank">{{story.title}}</a></h4>
+                   <h4 class="font-body text-3xl mt-4 font-bold text-left pl-4 pr-4 text-white leading-tight" style="text-shadow: 0px 1px 3px rgba(0,0,0,.5)"><a :href='story.link' target="_blank">{{story.title}}</a></h4>
                    <div class="mt-auto text-left p-4 text-white">
                     <p>{{story.date}} | {{story.comments}} comments</p>
                   </div>

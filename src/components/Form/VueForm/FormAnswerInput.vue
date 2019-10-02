@@ -4,8 +4,8 @@
   v-if="type !== 'block'"
       :type="type"
       :value="value"
-      class="vue-form__input font-display"
-      placeholder="Type your answer here..."
+      class="vue-form__input font-display text-xl md:text-4xl"
+      placeholder="Enter your answer here..."
       @input="e => $emit('input', e.target.value)"
       ref="field"
   >
@@ -43,24 +43,32 @@
 <style lang="scss" scoped>
 .input {
   height: 100%;
-  width: 500px;
+  width: 90%;
+  margin-left: .7rem;
   float: left;
 }
 textarea {
   align-self: flex-start;
   background: #fafafafa;
   padding: 15px;
-  width: 95%;
-  margin-left: 5%;
+  width: 100%;
+  height: 100px;
+     border-radius: 10px;
+  border: 2px solid #ddd;
+margin-top: 1rem;
+  &:focus {
+   outline: none;
+  border: 2px solid RGBA(27, 172, 192, 1.00);
+}
 }
   .vue-form__input {
 
     color: RGBA(27, 172, 192, 1.00);
 
-    font-size: 2rem;
     padding: 0 0 8px;
     background: none;
     border: none;
+    width: 100%;
 
     -webkit-appearance: none;
     border-bottom: 1px solid RGBA(27, 172, 192, 1.00);
@@ -73,4 +81,15 @@ textarea {
       outline: none;
     }
   }
+
+  @media (min-width: 640px) {
+  .input {
+margin-left: 1rem;
+}
+textarea {
+margin-left: 5%;
+height: auto;
+margin-top: 2%;
+}
+}
 </style>

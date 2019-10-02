@@ -168,7 +168,7 @@ background: RGBA(41, 71, 104, 1.00);
   display: flex;
   position: fixed;
   top: 0;
-  z-index: 99999;
+  z-index: 11;
   justify-content: space-between;
   width: 100%;
   align-items: center;

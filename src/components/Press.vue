@@ -1,19 +1,16 @@
 <template>
- <div class="w-full h-64 flex overflow-hidden relative" id="press">
-            <h2 class="text-4xl text-display absolute top-1">As mentioned by..</h2>
+  <div class="w-full flex overflow-hidden relative md:pt-12" id="press">
+    <h2 class="text-4xl text-display absolute top-1">As mentioned by..</h2>
 
-   <a
-                    :href="activePress.source"
-                    target="_blank"
-                    class="w-1/3 mt-10 mb-10 m-auto flex justify-center items-center"
-                  >
-                    <img :src="getImg(activePress.logo)" />
-                  </a>
-
-
-    </div>
+    <a
+      :href="activePress.source"
+      target="_blank"
+      class="w-3/4 md:w-1/3 mt-20 mb-2 md:mb-10 m-auto flex justify-center items-center"
+    >
+      <img class="m-auto" :src="getImg(activePress.logo)" />
+    </a>
+  </div>
 </template>
-
 
 <script>
 import "swiper/dist/css/swiper.css";
@@ -160,32 +157,32 @@ export default {
         }
       ],
       slideOptions: {
-      effect: 'fade',
-      autoplay: {
-    delay: 2000,
-  },
+        effect: "fade",
+        autoplay: {
+          delay: 2000
+        },
         slidesPerView: 1,
-            slidesPerColumn: 1,
-            slidesPerGroup: 1,
-            spaceBetween: 30,
-            slidesPerColumnFill: "row",
- 
+        slidesPerColumn: 1,
+        slidesPerGroup: 1,
+        spaceBetween: 30,
+        slidesPerColumnFill: "row",
+
         breakpoints: {
           640: {
             slidesPerView: 1,
             slidesPerColumn: 1,
             slidesPerGroup: 1,
             spaceBetween: 120,
-        centeredSlides: true,
+            centeredSlides: true,
             spaceBetween: 30,
-            slidesPerColumnFill: "row",
+            slidesPerColumnFill: "row"
           }
         }
       }
     };
   },
   methods: {
- getImg(value) {
+    getImg(value) {
       return require("../assets/press/" + value);
       // The path could be '../assets/img.png', etc., which depends on where your vue file is
     }
@@ -194,37 +191,41 @@ export default {
     swiper,
     swiperSlide
   },
-   mounted: function() {
-    this.activePress = this.press[0]
+  mounted: function() {
+    this.activePress = this.press[0];
     var counter = 0;
-    setInterval(function () {
-     
-      if (counter==this.press.length-1) {counter=0} else {  counter = counter + 1; };
-            this.activePress = this.press[counter];
-        }.bind(this), 2500);  
+    setInterval(
+      function() {
+        if (counter == this.press.length - 1) {
+          counter = 0;
+        } else {
+          counter = counter + 1;
+        }
+        this.activePress = this.press[counter];
+      }.bind(this),
+      2500
+    );
   },
-  props: ['data']
+  props: ["data"]
 };
-</script><style type="text/css" lang="scss">
+</script>
 
+<style type="text/css" lang="scss">
 #press {
-
-height: 400px; 
-overflow: hidden;
-text-align: center;
-display: flex;
-padding-top: 60px !important;
-justify-content: center;
-a {
-}
+  height: 400px;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  a {
+  }
 }
 #press {
-
   .mention {
     display: flex;
     justify-content: center;
     align-items: center;
-width: 400px;
+    width: 400px;
     height: 300px;
     border-right: 1px solid #ddd;
     img {
@@ -248,76 +249,43 @@ width: 400px;
       }
     }
   }
-    h3 {
-      font-size: 1.8em !important;
-      margin: 20px 0 60px;
+  h3 {
+    font-size: 1.8em !important;
+    margin: 20px 0 60px;
+  }
+  .hooper {
+    height: 200px !important;
+    margin-top: 30px;
+    width: 80% !important;
+    margin: 0 auto !important;
+  }
+  .press_slide {
+    .mention {
+      height: 200px;
     }
-    .hooper {
-      height: 200px !important;
-      margin-top: 30px;
-      width: 80% !important;
-      margin: 0 auto !important;
+  }
+
+}
+
+@media (max-width: 860px) {
+  #press {
+    margin-bottom: 0 !important;
+    padding-bottom: 20px !important;
+    padding-top: 20px !important;
+height: 300px;
+    h1 {
+      font-size: 1.6em !important;
     }
-    .press_slide {
-      .mention {
-        height: 200px;
+    .mention {
+      border-right: none !important;
+      width: 100%;
+      img {
+        width: 100%;
       }
     }
-    .hooper-navigation {
-     .hooper-prev {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'%3E%3Cswitch%3E%3Cg%3E%3Cpath fill='%23152637' d='M2.5 23v54c0 11.3 9.2 20.5 20.5 20.5h54c11.3 0 20.5-9.2 20.5-20.5V23c0-11.3-9.2-20.5-20.5-20.5H23A20.5 20.5 0 0 0 2.5 23zm51.3 1.9l15.4 15.4a5.4 5.4 0 0 1 1.6 3.8 5 5 0 0 1-1.6 3.8 5.5 5.5 0 0 1-7.7 0l-6.1-6.1v29.4c0 3-2.4 5.4-5.4 5.4s-5.4-2.4-5.4-5.4V41.9L38.4 48a5.5 5.5 0 0 1-7.7 0 5.5 5.5 0 0 1 0-7.7l15.4-15.4a5.5 5.5 0 0 1 7.7 0z'/%3E%3C/g%3E%3C/switch%3E%3C/svg%3E") no-repeat 0px 0px;
-  background-size: 100%;
-        left: -50px;
-  top: 40%;
-  transform: rotate(-90deg) scale(1.3);
-  svg {
-  display: none
-}
-}
- .hooper-next {
-  right: -50px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'%3E%3Cswitch%3E%3Cg%3E%3Cpath fill='%23152637' d='M2.5 23v54c0 11.3 9.2 20.5 20.5 20.5h54c11.3 0 20.5-9.2 20.5-20.5V23c0-11.3-9.2-20.5-20.5-20.5H23A20.5 20.5 0 0 0 2.5 23zm51.3 1.9l15.4 15.4a5.4 5.4 0 0 1 1.6 3.8 5 5 0 0 1-1.6 3.8 5.5 5.5 0 0 1-7.7 0l-6.1-6.1v29.4c0 3-2.4 5.4-5.4 5.4s-5.4-2.4-5.4-5.4V41.9L38.4 48a5.5 5.5 0 0 1-7.7 0 5.5 5.5 0 0 1 0-7.7l15.4-15.4a5.5 5.5 0 0 1 7.7 0z'/%3E%3C/g%3E%3C/switch%3E%3C/svg%3E") no-repeat 0px 0px;
-  background-size: 100%;
-  top: 40%;
-  transform: rotate(90deg) scale(1.3);
-    svg {
-  display: none
-}
-}
-
+    .hooper {
+      width: 100% !important;
     }
   }
-
-  @media (max-width: 860px) {
-
-#press {
-  margin-bottom: 0 !important;
-  padding-bottom: 20px !important;
-  padding-top: 20px !important;
-  h1 {
-  font-size: 1.6em !important;
 }
-    .hooper-navigation {
-    display: none;
-  .hooper-prev {
-  left: -40px !important;
-}
-.hooper-next {
-  right: -40px;
-}
-}
-  .mention {
-    border-right: none !important;
-    width: 100%;
-    img {
-    width: 85%;
-  }
-
-}
-.hooper {
-  width: 100% !important;
-}
-}
-}
-
 </style>

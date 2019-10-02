@@ -1,11 +1,11 @@
 <template>
-  <div class="w-full flex bg-black p-10 text-left">
-    <div class="w-3/4 px-4 pr-20">
+  <div class="w-full md:flex bg-black p-10 text-left">
+    <div class="md:w-3/4 md:px-4 md:pr-20">
       <h1 class="text-white font-bold">TERMS OF PARTICIPATION & PRIVACY POLICY</h1>
       <p class="text-white mt-2">The Edgeryders online platform and activities are intended for people to cooperate within and across projects trying to build a better world. The word "better" has here a fairly broad range of meaning. These <a class="underline" href='https://edgeryders.eu/t/netiquette/45' target='_blank'>Community Guidelines</a> are here to help you understand what it means to be a member of Edgeryders. Don’t forget that your use of Edgeryders is subject to these Community Guidelines and our <a class="underline" href='https://edgeryders.eu/t/id/44' targert='_blank'>Terms of Service</a>.</p>
     </div>
 
-    <div class="w-1/4 p-6 px-10 border-gray-100 border-l">
+    <div class="md:w-1/4 pt-4 md:p-6 md:px-10 border-gray-100 md:border-l">
       <h1 class="text-white font-bold">Contact Us</h1>
       <p class="text-white mt-2">
         <a class="underline" href='mailto:contact@edgeryders.eu' target="_blank">Email</a><br />

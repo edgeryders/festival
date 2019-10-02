@@ -4,6 +4,9 @@ import router from './router'
 import './assets/tailwind.css'
 import VuePlyr from 'vue-plyr'
 import vueSmoothScroll from "vue2-smooth-scroll"
+var VueScrollTo = require('vue-scrollto');
+
+Vue.use(VueScrollTo)
 
 Vue.use(VuePlyr)
 Vue.use(vueSmoothScroll)
