@@ -18,10 +18,10 @@
 
               <div class="story bg-cover bg-center flex flex-col flex-end shadow-lg" style="height: 400px; width: 100% !important; margin: 0 auto !important; background-repeat: no-repeat; background-color: RGBA(66, 103, 178, 1.00)" :style="{ backgroundImage: 'url(' + story.image + ')' }">
                 
-                  <Profile class='mt-4 ml-3 mb-2' :data='story.author' />
-                   <h4 class="font-body text-3xl mt-4 font-bold text-left pl-4 pr-4 text-white leading-tight" style="text-shadow: 0px 1px 3px rgba(0,0,0,.5)"><a :href='story.link' target="_blank">{{story.title}}</a></h4>
+                  <Profile class='m-6 md:mt-4 md:ml-3 md:mb-2' :data='story.author' />
+                   <h4 class="font-body text-3xl px-6 md:text-2xl mt-1 font-bold text-left md:px-4 text-white leading-tight" style="text-shadow: 0px 1px 2px rgba(0,0,0,.9)"><a :href='story.link' target="_blank">{{story.title}}</a></h4>
                    <div class="mt-auto text-left p-4 text-white">
-                    <p>{{story.date}} | {{story.comments}} comments</p>
+                    <p class="px-0 pb-0">{{story.comments}} comments</p>
                   </div>
 
               </div>
@@ -31,8 +31,8 @@
             </swiper-slide>
 
           </swiper>
-          <div class="slider-arrow left" @click='back()'></div>
-<div class="slider-arrow right" @click='forward()'></div>
+          <div class="slider-arrow left hidden md:block" @click='back()'></div>
+<div class="slider-arrow right hidden md:block" @click='forward()'></div>
 
 </div>
   </div>

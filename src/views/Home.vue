@@ -105,7 +105,6 @@ export default {
   },
   created () {
   	this.getData();
-  	this.getCategories();
   },
   methods: {
 	  	 setMessage(msg) {
@@ -175,33 +174,7 @@ axios.post(airtable, exampledata, axiosConfig)
 	                this.events = data.events;
 	                this.conversations = data.conversations;
 	                this.stories = data.stories;
-	            })
-	            .catch()
-	    },
-	    getCategories() {
-	        
-	        axios.get("https://api.particip.io/get-data?endpoint=https://edgeryders.eu/categories")
-	            .then(({ data }) => {
-
-					let categoryArray = data.category_list.categories.filter(
-					  function(e) {
-					    return (
-					      e.name !== "Campfire" &&
-					      e.name !== "Workspaces" &&
-					      e.name !== "Knowledge Collection" &&
-					      e.name !== "Documentation & Support"
-					    );
-					  }
-					);
-
-					function sortCats(catdata) {
-						return catdata.sort((a, b) =>
-						a.topics[0].last_posted_at < b.topics[0].last_posted_at ? 1 : -1
-						);
-					}
-
-					this.categories = sortCats(categoryArray);
-
+	                this.categories = data.categories;
 	            })
 	            .catch()
 	    }

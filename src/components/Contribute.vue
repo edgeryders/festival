@@ -20,7 +20,7 @@
     <div class="w-full" v-if='activeDiscussion != null'>
         <div class="w-full flex flex-col md:flex-row items-center md:content-center" v-if="activeDiscussion.author">
 
-          <div class="mt-10 md:p-2 w-20 h-20 flex-none md:mr-8 ml-0 mb-8 md:mb-5 bg-white rounded-full shadow-lg border-4 border-white overflow-hidden object-cover bg-cover" :style="{ backgroundImage: 'url(' + activeDiscussion.author.avatar + ')' }">
+          <div class="mt-10 mb-8 md:mt-0 md:mr-8 w-20 h-20 flex-none bg-white rounded-full shadow-lg border-4 border-white overflow-hidden object-cover bg-cover" :style="{ backgroundImage: 'url(' + activeDiscussion.author.avatar + ')' }">
           </div>
             
   

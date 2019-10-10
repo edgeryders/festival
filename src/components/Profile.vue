@@ -1,7 +1,7 @@
 <template>
   <div class="self-start flex items-center pr-2 w-auto bg-gray-100 border-b border-gray rounded-full overflow-hidden">
-    <div class="w-12 h-12 bg-cover shadow-lg" :style="{ backgroundImage: 'url(' + data.avatar + ')' }"></div>
-    <a class="ml-3 mt-1 mr-2 font-bold text-lg" :href="'https://edgeryders.eu/u/' + data.username" target="_blank">@{{data.username}}</a>
+    <div class="w-12 h-12 md:h-10 bg-cover shadow-lg" :style="{ backgroundImage: 'url(' + data.avatar + ')' }"></div>
+    <a class="ml-3 mt-1 mr-2 font-bold text-s" :href="'https://edgeryders.eu/u/' + data.username" target="_blank">@{{data.username}}</a>
   </div>
 </template>
 
